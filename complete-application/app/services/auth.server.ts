@@ -1,4 +1,4 @@
-import jwt_decode from "jwt-decode";
+import { jwtDecode } from "jwt-decode";
 import { Authenticator } from "remix-auth";
 import { sessionStorage } from "~/services/session.server";
 import { OAuth2Strategy, OAuth2StrategyOptions } from "remix-auth-oauth2";
@@ -19,7 +19,7 @@ const authStrategy = new OAuth2Strategy(
     authOptions,
     async ({accessToken, refreshToken, extraParams, profile, context, request}) => {
         type Token = { email: string }
-        const token: Token = jwt_decode(accessToken);
+        const token: Token = jwtDecode(accessToken);
         return token.email;
     }
 );
