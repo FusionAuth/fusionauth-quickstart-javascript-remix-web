@@ -34,7 +34,7 @@ export default function Change() {
         <div id="page-container">
             <div id="page-header">
                 <div id="logo-header">
-                    <img src="https://fusionauth.io/assets/img/samplethemes/changebank/changebank.svg" />
+                    <img src="https://fusionauth.io/cdn/samplethemes/changebank/changebank.svg" />
                     <div className="h-row">
                         <p className="header-email">{email}</p>
                         <Link to="/logout" className="button-lg">Logout</Link>
