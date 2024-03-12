@@ -14,7 +14,7 @@ export default function Index() {
     <div id="page-container">
       <div id="page-header">
         <div id="logo-header">
-          <img src="https://fusionauth.io/assets/img/samplethemes/changebank/changebank.svg" />
+          <img src="https://fusionauth.io/cdn/samplethemes/changebank/changebank.svg" />
           <Link to="/login" className="button-lg">Login</Link>
         </div>
 
