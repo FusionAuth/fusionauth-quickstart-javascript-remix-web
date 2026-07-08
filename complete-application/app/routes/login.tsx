@@ -1,9 +1,6 @@
-import type { LoaderFunction } from "@remix-run/node"
 import { authenticator } from "~/services/auth.server";
+import type { Route } from "./+types/login";
 
-export let loader: LoaderFunction = async ({ request }) => {
-  return await authenticator.authenticate("FusionAuth", request, {
-    successRedirect: "/account",
-    failureRedirect: "/",
-  });
-};
+export async function loader({ request }: Route.LoaderArgs) {
+  return await authenticator.authenticate("FusionAuth", request);
+}
