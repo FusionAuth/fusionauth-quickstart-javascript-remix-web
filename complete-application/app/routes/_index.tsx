@@ -1,12 +1,12 @@
-import { Link } from "@remix-run/react";
-import type { LoaderFunction } from "@remix-run/node"
-import { authenticator } from "~/services/auth.server";
+import { Link, redirect } from "react-router";
+import { sessionStorage } from "~/services/session.server";
+import type { Route } from "./+types/_index";
 
-export const loader: LoaderFunction = async ({request}) => {
-  let user = await authenticator.isAuthenticated(request, {
-      successRedirect: "/account",
-  });
-  return user;
+export async function loader({ request }: Route.LoaderArgs) {
+  const session = await sessionStorage.getSession(request.headers.get("cookie"));
+  const user = session.get("user");
+  if (user) throw redirect("/account");
+  return null;
 }
 
 export default function Index() {
